@@ -1,0 +1,190 @@
+
+html {
+  scroll-behavior: smooth;
+}
+
+button, a.btn {
+  transition: all 0.3s ease;
+}
+button:hover, a.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+svg:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateY(40px);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.card.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card.visible:hover {
+  transform: translateY(-6px); 
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card.card-image {
+  padding: 0; 
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card.card-image img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card.card-image > .flex-1 {
+  padding: 1rem 1rem 1.25rem 1rem !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.card.card-image > .flex-1 > h3 {
+  margin: 0 0 0.4rem 0 !important;
+  padding: 0;
+}
+
+.card.card-image > .flex-1 > p {
+  margin: 0 !important;
+  padding: 0;
+  line-height: 1.4;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.impact-box {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+}
+
+.plant {
+  font-size: 3rem;
+  transition: all 1s ease-out;
+}
+.plant.grow {
+  opacity: 1;
+  transform: translateY(0);
+}
+.plant:nth-child(1) { transition-delay: 0.2s; }
+.plant:nth-child(2) { transition-delay: 0.4s; }
+.plant:nth-child(3) { transition-delay: 0.6s; }
+
+#plantContainer {
+  transition: transform 0.2s ease-out;
+}
+
+.plant {
+  font-size: 3rem;
+  transition: transform 0.3s ease;
+}
+
+#hero {
+  background-image: url("background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  color: white;
+}
+
+#hero h2, #hero p {
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); 
+  z-index: 1;
+}
+
+#hero > div {
+  position: relative;
+  z-index: 2;
+}
+
+#impact {
+  background: linear-gradient(135deg, #e8fdf5, #ffffff); 
+}
+
+#contact {
+  position: relative;
+  z-index: 2;
+  background-color: #f8fff9;
+}
+
+#contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(248,255,249,0.8), rgba(248,255,249,0.8)),
+  url('contact-bg.jpg') center/cover no-repeat;
+  opacity: 1; 
+  z-index: 0;
+}
+
+#contact > * {
+  position: relative;
+  z-index: 1; 
+}
+
+#contact form, #contact div.bg-white {
+  animation: fade-in 1s ease forwards;
+  opacity: 0;
+}
+
+#contact form.visible, #contact div.bg-white.visible {
+  opacity: 1;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 1.2s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+  header nav ul {
+    display: none;
+  }
+  .card {
+    text-align: center;
+  }
+}
+
+#particles {
+  background: radial-gradient(circle at 50% 50%, rgba(46, 204, 113, 0.1), transparent 70%);
+  animation: moveParticles 10s linear infinite alternate;
+}
+
+@keyframes moveParticles {
+  from { background-position: 0 0; }
+  to { background-position: 100% 100%; }
+}
